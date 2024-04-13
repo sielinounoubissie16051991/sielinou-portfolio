@@ -1,3 +1,13 @@
+/*==================    toggle icon navbar     =================*/
+
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+}
+
 /*==================    scroll sections active link     =================*/
 
 let sections = document.querySelectorAll('section');
@@ -26,4 +36,46 @@ window.onscroll = () => {
 
     // console.log(header);
     header.classList.toggle('sticky', window.scrollY > 100);
+
+    /*======================    remove toggle icon and navbar hen click navbar link (scroll)   ===================== */
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
 };
+
+    /*======================    scroll reveal   ===================== */
+    ScrollReveal({ 
+        // reset: true,
+        distance: '80px',
+        duration: 2000,
+        deplay: 200
+     });
+     ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+     ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact, form', { origin: 'bottom' });
+     ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+     ScrollReveal().reveal('.home-content p, .about-content', { origin: 'rigth' });
+
+     /*=======================      typed js    ====================*/
+
+    const typed = new Typed('.multiple-text', {
+        strings: ['Frontend Developer', 'UI/UX Designer', 'Freelancer'],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true,
+    });
+
+     /*=======================      see more    ====================*/
+     /*
+    function toggleText() {
+        var textContainer = document.querySelector('.about-content');
+        var buttonText = document.querySelector('.btn-VOIR_PLUS_1');
+
+        if (textContainer.style.display === 'none') {
+            textContainer.style.display = 'block';
+            buttonText.innerText = 'Voir moins';
+        } else {
+            textContainer.style.display = 'none';
+            buttonText.innerText = 'Voir plus';
+        }
+    }
+    */
