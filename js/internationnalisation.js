@@ -29,24 +29,14 @@ function changeLanguage(lang) {
         Personnel.style.marginRight = '1rem';
         let multipleText = document.querySelector('.multiple-text');
         multipleText.style.marginLeft = '1rem';
-        new Typed('.multiple-text', {
-            strings: ['Frontend Developer', 'UI/UX Designer', 'Freelancer'],
-            typeSpeed: 100,
-            backSpeed: 100,
-            backDelay: 1000,
-            loop: true,
-        });
+
+        scriptInit();
     } else if (lang === 'fr') {
         version_fr_or_en.innerHTML = genereCodeHTMLFr();
         let fr_en = document.getElementById('fr_en');
         fr_en.innerHTML = `<button class="" onclick="changeLanguage('en')" id="English">English</button>`;
-        new Typed('.multiple-text', {
-            strings: ['Frontend Developer', 'UI/UX Designer', 'Freelancer'],
-            typeSpeed: 100,
-            backSpeed: 100,
-            backDelay: 1000,
-            loop: true,
-        });
+
+        scriptInit();
     }
     /*
     loadLanguage(lang)

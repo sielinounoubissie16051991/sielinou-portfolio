@@ -1,48 +1,50 @@
 /*==================    toggle icon navbar     =================*/
 
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+function scriptInit(){
+    let menuIcon = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-}
+    menuIcon.onclick = () => {
+        menuIcon.classList.toggle('bx-x');
+        navbar.classList.toggle('active');
+    }
 
-/*==================    scroll sections active link     =================*/
+    /*==================    scroll sections active link     =================*/
 
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+    let sections = document.querySelectorAll('section');
+    let navLinks = document.querySelectorAll('header nav a');
 
-console.log(sections);
-window.onscroll = () => {
-    // console.log(sections);
+    console.log(sections);
+    window.onscroll = () => {
+        // console.log(sections);
 
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+        sections.forEach(sec => {
+            let top = window.scrollY;
+            let offset = sec.offsetTop - 150;
+            let height = sec.offsetHeight;
+            let id = sec.getAttribute('id');
 
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
-            });
-        };
-    });
+            if (top >= offset && top < offset + height) {
+                navLinks.forEach(links => {
+                    links.classList.remove('active');
+                    document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                });
+            }
+            ;
+        });
 
-    /*======================    sticky navbar   ===================== */
-    let header = document.querySelector('header');
+        /*======================    sticky navbar   ===================== */
+        let header = document.querySelector('header');
 
-    // console.log(header);
-    header.classList.toggle('sticky', window.scrollY > 100);
+        // console.log(header);
+        header.classList.toggle('sticky', window.scrollY > 100);
 
-    /*======================    remove toggle icon and navbar hen click navbar link (scroll)   ===================== */
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
-};
+        /*======================    remove toggle icon and navbar hen click navbar link (scroll)   ===================== */
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    };
 
-/*======================    scroll reveal   ===================== */
+    /*======================    scroll reveal   ===================== */
 // ScrollReveal({
 //     // reset: true,
 //     distance: '80px',
@@ -54,16 +56,16 @@ window.onscroll = () => {
 // ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 // ScrollReveal().reveal('.home-content p, .about-content', { origin: 'rigth' });
 
-/*=======================      typed js    ====================*/
+    /*=======================      typed js    ====================*/
 
-const typed = new Typed('.multiple-text', {
-    strings: ['Frontend Developer', 'UI/UX Designer', 'Freelancer'],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true,
-});
-
+    const typed = new Typed('.multiple-text', {
+        strings: ['Frontend Developer', 'UI/UX Designer', 'Freelancer'],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true,
+    });
+}
 /*=======================      see more    ====================*/
 /*
 function toggleText() {
@@ -79,3 +81,4 @@ function toggleText() {
    }
 }
 */
+scriptInit();
